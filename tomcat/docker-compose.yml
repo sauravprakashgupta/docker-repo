@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  tomcat:
+    image: docker.io/bitnami/tomcat:9.0
+    ports:
+      - '8081:8080'
+    volumes:
+      - 'data:/bitnami'
+      - 'configurations:/opt/bitnami/tomcat'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - TZ=Asia/Kolkata
+
+volumes:
+  data:
+    driver: local
+  configurations:
+    driver: local
